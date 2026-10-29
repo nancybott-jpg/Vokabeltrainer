@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Business English Vokabeltrainer</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body data-view="list">
+  <header class="topbar">
+    <h1>Business English <span>Vokabeltrainer</span></h1>
+    <div id="stats" class="stats" aria-live="polite"></div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button type="button" role="tab" data-view="list">Übersicht</button>
+    <button type="button" role="tab" data-view="cards">Karteikarten</button>
+    <button type="button" role="tab" data-view="quiz">Quiz</button>
+    <button type="button" role="tab" data-view="write">Schreiben</button>
+  </nav>
+
+  <section class="filters">
+    <label>Bereich
+      <select id="f-area"><option value="">Alle Bereiche</option></select>
+    </label>
+    <label>Auswahl
+      <select id="f-scope">
+        <option value="all">Alle Vokabeln</option>
+        <option value="due">Heute fällig</option>
+        <option value="new">Neu (letzte 7 Tage)</option>
+      </select>
+    </label>
+    <label class="dir-only">Richtung
+      <select id="f-dir">
+        <option value="en-de">Englisch → Deutsch</option>
+        <option value="de-en">Deutsch → Englisch</option>
+      </select>
+    </label>
+    <label class="list-only">Wortart
+      <select id="f-pos"><option value="">Alle Wortarten</option></select>
+    </label>
+    <label class="list-only search">Suche
+      <input type="search" id="f-search" placeholder="Vokabel, Deutsch, Erklärung …" autocomplete="off">
+    </label>
+  </section>
+
+  <div id="notice" class="notice" hidden></div>
+
+  <main id="main"></main>
+
+  <footer class="footer">
+    <span id="loaded-at"></span>
+    <button type="button" id="btn-reload" class="link">Neu laden</button>
+    <button type="button" id="btn-reset" class="link danger">Fortschritt zurücksetzen</button>
+  </footer>
+</body>
+</html>
